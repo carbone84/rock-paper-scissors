@@ -1,4 +1,3 @@
-var rounds = 5;
 var playerScore = 0;
 var computerScore = 0;
 var choices = document.querySelectorAll(".choice");
