@@ -1,0 +1,36 @@
+body {
+    background-color: slateblue;
+    margin: 0;
+}
+
+.strip {
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid lightgray;
+    background-color: slategray;
+}
+
+.container {
+    max-width: 50vw;
+    height: 25vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.choice {
+    font-size: 5em;
+    color: hotpink;
+    width: .25em;
+    height: .5em;
+    float: left;
+    border: .12em solid black;
+    padding: .8em;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
