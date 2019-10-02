@@ -8,6 +8,8 @@ body {
     border: 1px solid rgba(0, 0, 0, 0);
     border-bottom: 1px solid lightgray;
     background-color: slategray;
+    position: relative;
+    padding-bottom: 15px;
 }
 
 .container {
@@ -15,6 +17,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.basic {
+    display: flex;
+}
+
+.hard {
+    display: flex;
+}
+
+.hide {
+    display: none;
 }
 
 .choice {

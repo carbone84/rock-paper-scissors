@@ -7,7 +7,8 @@ var winLoseDraw_span = document.querySelector(".winLoseDraw");
 var playerScore_span = document.querySelector(".playerScore");
 var computerScore_span = document.querySelector(".computerScore");
 var reset_button = document.querySelector(".reset");
-
+var hard_button = document.querySelector(".hard-button");
+var hard_div = document.querySelector(".hard");
 init();
 
 function init() {
@@ -24,7 +25,9 @@ function setupChoices() {
 }
 
 function computerPlay() {
-    return choices[Math.floor(Math.random() * 3)].id;
+    let num;
+    hard_button.innerHTML == "Hard" ? num = 3 : num = 5;
+    return choices[Math.floor(Math.random() * num)].id;
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -32,9 +35,12 @@ function playRound(playerSelection, computerSelection) {
     computerSelection_span.textContent = computerSelection;
     if (playerSelection.toLowerCase() === computerSelection) {
         winLoseDraw_span.textContent = "It's a DRAW!";
-    } else if ((playerSelection.toLowerCase() === "rock" && computerSelection === "scissors")
-            || (playerSelection.toLowerCase() === "paper" && computerSelection === "rock")
-            || (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper")) {
+    } else if ((playerSelection.toLowerCase() === "rock" && (computerSelection === "scissors" || computerSelection === "lizard"))
+            || (playerSelection.toLowerCase() === "paper" && (computerSelection === "rock" || computerSelection === "spock"))
+            || (playerSelection.toLowerCase() === "scissors" && (computerSelection === "paper" || computerSelection === "lizard"))
+            || (playerSelection.toLowerCase() === "lizard" && (computerSelection === "paper" || computerSelection === "spock"))
+            || (playerSelection.toLowerCase() === "spock" && (computerSelection === "rock" || computerSelection === "scissors"))
+            ) {
         playerScore++;
         playerScore_span.textContent = playerScore;
         winLoseDraw_span.textContent = "YOU WON!! =)"
@@ -58,3 +64,12 @@ function reset() {
     playerSelection_span.textContent = "";
     computerSelection_span.textContent = "";
 }
+
+hard_button.addEventListener("click", function() {
+    if(hard_button.innerHTML == "Hard") {
+        hard_button.innerHTML = "Easy";
+    } else {
+        hard_button.innerHTML = "Hard";
+    }
+    hard_div.classList.toggle("hide");
+})
